@@ -2,12 +2,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Input } from 'antd';
-import { Button, Flex } from 'antd';
+import { Button } from 'antd';
 const { TextArea } = Input;
 const App = () => {
   const [urls, setUrls] = useState([]);
-  const [titles, setTitles] = useState([]);
-  const [error, setError] = useState('');
 
   const crawlUrl = async (url) => {
     const apiUrl = 'http://localhost:5000/api/crawl'; // Địa chỉ API crawl
