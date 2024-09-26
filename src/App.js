@@ -42,7 +42,7 @@ const App = () => {
         handleCrawl()
       }, time * 1000)
     }
-  }, [urls, time])
+  }, [urls, time, handleCrawl])
 
   const handleOnChange = async (e) => {
     const text = e.target.value;
@@ -72,8 +72,8 @@ const App = () => {
       </Row>
       <div>
         <h1>Thời gian tải lại (giây)</h1>
-        <div style={{width:100}}>
-          <Input onChange={(e) => setTime(Number(e.target.value))} width={100} value={time}/>
+        <div style={{ width: 100 }}>
+          <Input onChange={(e) => setTime(Number(e.target.value))} width={100} value={time} />
         </div>
       </div>
       <Button type="primary" onClick={handleCrawl} style={{ marginTop: 20, marginBottom: 20 }}>Kiểm tra</Button>
