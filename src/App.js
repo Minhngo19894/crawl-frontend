@@ -1,5 +1,5 @@
 // frontend/src/App.js
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Col, Input, Row, Table } from 'antd';
 import { Button } from 'antd';
@@ -21,7 +21,7 @@ const App = () => {
     }
   };
 
-  const handleCrawl = async () => {
+  const handleCrawl = useCallback(async () => {
     try {
       // Tạo một mảng các Promise
       const promises = urls.map(url => crawlUrl(url));
@@ -33,7 +33,8 @@ const App = () => {
     } catch (error) {
       console.error('Error during crawling:', error);
     }
-  };
+
+  }, [urls])
 
   useEffect(() => {
     if (urls.length) {
