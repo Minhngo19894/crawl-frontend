@@ -11,7 +11,7 @@ const App = () => {
   const [time, setTime] = useState(300)
 
   const crawlUrl = async (url) => {
-    const apiUrl = 'https://test-craw-m6k6.onrender.com/api/crawl'; // Địa chỉ API crawl
+    const apiUrl = 'http://localhost:5000/api/crawl'; // Địa chỉ API crawl
     try {
       const response = await axios.post(apiUrl, { url: 'https://generator.email/' + url });
       return { email: url, content: response.data.text?.[1] }; // Trả về dữ liệu từ API
